@@ -69092,6 +69092,7 @@ GameObject:
   - component: {fileID: 1549099368131509340}
   - component: {fileID: 6741709201850103388}
   - component: {fileID: 6266593810289023499}
+  - component: {fileID: 6880794081660588508}
   m_Layer: 6
   m_Name: bosque escena
   m_TagString: Untagged
@@ -69099,6 +69100,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6880794081660588508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880794081660588507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192d8a73677b6264db6a3c5cc0e256af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6893444788091621688
 Transform:
   m_ObjectHideFlags: 0
