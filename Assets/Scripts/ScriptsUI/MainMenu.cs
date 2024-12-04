@@ -88,4 +88,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("brillo", sliderValue);
         filtroBrillo.color = new Color(filtroBrillo.color.r, filtroBrillo.color.g, filtroBrillo.color.b, slider.value);
     }
+
+    public void Salir()
+    {
+        Debug.Log("Saliendo");
+        Application.Quit();
+    }
 }

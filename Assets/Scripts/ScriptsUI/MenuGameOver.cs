@@ -17,8 +17,7 @@ public class MenuGameOver : MonoBehaviour
 
     public void Salir()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
-        Time.timeScale = 1f; // Asegúrate de restaurar el tiempo antes de cambiar de escena.
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
 }
