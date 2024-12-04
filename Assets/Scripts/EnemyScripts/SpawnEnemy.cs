@@ -6,6 +6,7 @@ public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject player;
+    [SerializeField] private NPCInteraction interactionNPC;
     [SerializeField] private float timeMax = 15f;
     private float currentTime;
 
@@ -19,7 +20,7 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!enemy.activeSelf)
+        if(!enemy.activeSelf && interactionNPC.isInteractionCompleated)
         {
             currentTime += Time.deltaTime;
             Debug.Log(currentTime);

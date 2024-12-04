@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
-    [SerializeField]  GameObject textNPC;
-    [SerializeField]  List<GameObject> texts;
+    [SerializeField] private GameObject textNPC;
+    [SerializeField] private List<GameObject> texts;
     private int indexTexts = 0;
     private bool isPlayerInRange = false;
+
+    public bool isInteractionCompleated;
 
     private Animator animator;
 
@@ -19,9 +21,8 @@ public class NPCInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Pulso E");
             animator.SetTrigger("isTalking");
             textNPC.SetActive(true);
         }
@@ -63,6 +64,7 @@ public class NPCInteraction : MonoBehaviour
                 textNPC.SetActive(false);
                 indexTexts = 0;
                 texts[indexTexts].SetActive(true);
+                isInteractionCompleated = true;
             }
         }
 

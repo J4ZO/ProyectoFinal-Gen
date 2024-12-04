@@ -71,7 +71,7 @@ MonoBehaviour:
   enemy: {fileID: 8813117536847904730}
   maxHealth: 50
   currentHealth: 0
-  increase: 0
+  increase: 20
 --- !u!1001 &8543067244615729803
 PrefabInstance:
   m_ObjectHideFlags: 0
