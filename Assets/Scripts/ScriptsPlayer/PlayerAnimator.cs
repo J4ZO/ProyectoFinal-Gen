@@ -11,6 +11,7 @@ public class PlayerAnimator : MonoBehaviour
     public float x, y;
     public Rigidbody rb;
 
+
     public float fuerzaDeSalto = 22f;
     public float fuerzaExtra = 0.4f;
     public bool grounded;
@@ -22,11 +23,7 @@ public class PlayerAnimator : MonoBehaviour
     public bool avanzoSolo;
     public float impulsoGolpe = 8f;
 
-    public GameObject arma;
-    private bool armaActiva = false;
-
-    public float rangoDeteccion = 5f;
-    public LayerMask capaEnemigos;
+    public bool hasPistol = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +34,7 @@ public class PlayerAnimator : MonoBehaviour
         velocidadInicial = speedMovement;
         velocidadAgachado = speedMovement * 0.5f;
 
-        if (arma != null)
-        {
-            arma.SetActive(false);
-        }
-
+        hasPistol = true;
     }
     private void FixedUpdate()
     {
@@ -60,40 +53,21 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetFloat("SpeedX", x);
         animator.SetFloat("SpeedY", y);
 
-   
-        if (!estoyAtacando)
+        animator.SetBool("HoldPistol",hasPistol);
+
+        if (hasPistol)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && grounded)  
-            {
-                Salto();
-            }
-
-            
-            if (Input.GetKeyDown(KeyCode.F) && !armaActiva && grounded)  
-            {
-                animator.SetTrigger("Puños");
-                AtacarConPuños();
-            }
-
-            if (Input.GetMouseButtonDown(0) && grounded && armaActiva)  
-            {
-                animator.SetTrigger("Arma");
-                AtacarConPistola();
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                CambiarEstadoArma();
-            }
-
-            if (DetectarEnemigo() && !armaActiva && !estoyAtacando)
-            {
-                AtacarConPuños();
-            }
+            animator.SetLayerWeight(1, 1);
         }
 
         if (grounded)
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.SetBool("Salto", true);
+                rb.AddForce(new Vector3(0, fuerzaDeSalto, 0), ForceMode.Impulse);
+
+            }
             animator.SetBool("Grounded", true);
         }
         else
@@ -101,65 +75,10 @@ public class PlayerAnimator : MonoBehaviour
             Caigo();
         }
     }
-
-    void Salto()
-    {
-        if (grounded) 
-        {
-            animator.SetBool("Salto", true); 
-            rb.AddForce(new Vector3(0, fuerzaDeSalto, 0), ForceMode.Impulse);  
-            grounded = false; 
-        }
-    }
-
     void Caigo()
     {
         animator.SetBool("Grounded", false);
         animator.SetBool("Salto", false);   
     }
-
-    private void AtacarConPuños()
-    {
-        if (!estoyAtacando)
-        {
-            estoyAtacando = true;
-            Debug.Log("Atacando con puños");
-            StartCoroutine(ResetAtaque());
-        }
-    }
-
-    private void AtacarConPistola()
-    {
-        if (!estoyAtacando)
-        {
-            estoyAtacando = true;
-            Debug.Log("Disparando con la pistola");
-            StartCoroutine(ResetAtaque());
-        }
-    }
-
-    private IEnumerator ResetAtaque()
-    {
-        yield return new WaitForSeconds(1f); 
-        estoyAtacando = false; 
-    }
-
-    private bool DetectarEnemigo()
-    {
-        Collider[] enemigos = Physics.OverlapSphere(transform.position, rangoDeteccion, capaEnemigos);
-        return enemigos.Length > 0;
-    }
-
-    private void CambiarEstadoArma()
-    {
-        armaActiva = !armaActiva;
-
-        if (arma != null)
-        {
-            arma.SetActive(armaActiva);
-        }
-
-        animator.SetBool("ArmaActiva", armaActiva);
-    }
-
+    
 }
