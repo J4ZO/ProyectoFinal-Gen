@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 9123546070374670149}
   m_Layer: 0
   m_Name: Reloj
-  m_TagString: Untagged
+  m_TagString: Clue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,8 +220,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.11566448, y: 0.072445184, z: 0.56448126}
-  m_Center: {x: 0, y: 0.008311465, z: 0.024934292}
+  m_Size: {x: 0.2885685, y: 0.419717, z: 0.6618142}
+  m_Center: {x: -0.0011930466, y: 0.18194738, z: 0.04058981}
 --- !u!114 &9123546070374670149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +235,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: ed87ee8d33819454abf4d8431fd12749, type: 2}
+  isPicked: 0
