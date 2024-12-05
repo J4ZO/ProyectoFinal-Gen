@@ -403,7 +403,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423533998280003833, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726905937123824228, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637591830957317541, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2740726379172539561, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
       propertyPath: m_SizeDelta.x
@@ -439,7 +447,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7004344619051517695, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661645517066631099, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661645517066631099, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
+      propertyPath: m_RaycastTarget
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661645517066631099, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661645517066631099, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590492858456013789, guid: 9957490ddef9de64bbdc8d9cf1f0b526, type: 3}
       propertyPath: m_Color.a
