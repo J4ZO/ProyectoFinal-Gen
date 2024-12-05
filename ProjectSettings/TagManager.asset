@@ -7,7 +7,6 @@ TagManager:
   - Volumen
   - Enemy
   - CinemachineTarget
-  - Obstacle
   - Ground
   layers:
   - Default
