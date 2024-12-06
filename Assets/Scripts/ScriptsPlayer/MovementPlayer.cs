@@ -7,7 +7,7 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] private float speedMovement = 5.0f;
     [SerializeField] private float speedRotate = 200.0f;
     [SerializeField] private float movX;
-    [SerializeField] private float movY;
+    [SerializeField] private float movY,moveRun;
 
     private Rigidbody rb;
     [SerializeField] private bool grounded;
@@ -96,7 +96,7 @@ public class MovementPlayer : MonoBehaviour
     private void Running()
     {
         isRunning = true;
-        speedMovement = 10f;
+        speedMovement = moveRun;
         animator.SetBool("Running",true);
     }
 }

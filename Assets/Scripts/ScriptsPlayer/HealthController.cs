@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class HealthController : MonoBehaviour
     [SerializeField] private bool isDeadPlayer;
 
     [SerializeField] private GameObject gameOver;
+    [SerializeField] private Slider slider;
     private Animator animator;
 
     // Start is called before the first frame update
@@ -17,16 +19,18 @@ public class HealthController : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        slider.maxValue = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        slider.value = currentHealth;
     }
 
     public void DamagePlayer(float damage)
     {
+        
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -49,7 +53,7 @@ public class HealthController : MonoBehaviour
             animator.SetTrigger("isDie");
         }
 
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); 
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 2f); 
         gameOver.SetActive(true);
         Time.timeScale = 0f;
     }

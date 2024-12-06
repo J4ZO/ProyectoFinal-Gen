@@ -9,7 +9,6 @@ public class AttackPlayer : MonoBehaviour
     [SerializeField] GameObject gun;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletPower = 20f;
-    [SerializeField] private Collider punchCollider;
     public float damageAmount = 5f;
     private bool gunActive = false;
 

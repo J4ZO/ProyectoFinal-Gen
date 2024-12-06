@@ -168,15 +168,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01209962cbd02f64ab7fa9d747eb174a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01209962cbd02f64ab7fa9d747eb174a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01209962cbd02f64ab7fa9d747eb174a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -626.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01209962cbd02f64ab7fa9d747eb174a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -312,9 +312,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.34391272
-  m_Height: 1.8502069
+  m_Height: 1.8030245
   m_Direction: 1
-  m_Center: {x: -0.009413004, y: 0.87672424, z: 0}
+  m_Center: {x: -0.009413004, y: 0.9003154, z: 0}
 --- !u!114 &7114969877503151960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +356,7 @@ MonoBehaviour:
   speedRotate: 200
   movX: 0
   movY: 0
+  moveRun: 20
   grounded: 0
   fuerzaDeSalto: 7
 --- !u!114 &2614863332389119872
