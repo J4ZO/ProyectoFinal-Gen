@@ -5289,8 +5289,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 389269396}
+  m_Children: []
   m_Father: {fileID: 8557627425517871020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5867,7 +5866,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389269395}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5876,12 +5875,12 @@ RectTransform:
   - {fileID: 1088351151}
   - {fileID: 311565964}
   - {fileID: 1621823695}
-  m_Father: {fileID: 358081977}
+  m_Father: {fileID: 8557627425517871020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -368.3198, y: -161.4554}
+  m_SizeDelta: {x: -368.31982, y: -161.45544}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &389269397
 MonoBehaviour:
@@ -24899,10 +24898,10 @@ MonoBehaviour:
     pues la ciudad ah tenido que cerrar establecimientos por diversos ataques provocados
     por parte de una secta llamada el tercer ojo y sospecho que el culpable de este
     crimen tiene que ver con esta secta. Encontramos dos pistas que le ser\xE1n de
-    utilidad, est\xE1n al lado del cuerpo, le deseo suerte en su investigaci\xF3n.\n\n\"Para
+    utilidad, est\xE1n al lado del cuerpo, le deseo suerte en su investigaci\xF3n.\n\"Para
     ver a los sospechosos oprima la tecla G\""
   fragmentDisplayTime: 3
-  maxCharactersPerFragment: 80
+  maxCharactersPerFragment: 85
 --- !u!1001 &1944853641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25310,8 +25309,8 @@ PrefabInstance:
         ataques provocados por parte de una secta llamada el tercer ojo y sospecho
         que el culpable de este crimen tiene que ver con esta secta. Encontramos
         dos pistas que le ser\xE1n de utilidad, est\xE1n al lado del cuerpo, le deseo
-        suerte en su investigaci\xF3n.\n\n\"Para ver a los sospechosos oprima la
-        tecla G\""
+        suerte en su investigaci\xF3n.\n\"Para ver a los sospechosos oprima la tecla
+        G\""
       objectReference: {fileID: 0}
     - target: {fileID: 6747691259336050050, guid: d8959d0307c6c5c4cb8e41e086c2a4fb, type: 3}
       propertyPath: m_fontSize
@@ -88026,6 +88025,7 @@ RectTransform:
   - {fileID: 6738286663770755918}
   - {fileID: 2090334829}
   - {fileID: 358081977}
+  - {fileID: 389269396}
   - {fileID: 1786372739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
