@@ -46,16 +46,29 @@ public class DialogFragmentController : MonoBehaviour
     private string[] SplitTextIntoFragments(string text, int maxCharacters)
     {
         List<string> fragmentList = new List<string>();
-        int index = 0;
+        string[] words = text.Split(' '); // Divide el texto en palabras
+        string currentFragment = "";
 
-        while (index < text.Length)
+        foreach (string word in words)
         {
-            int length = Mathf.Min(maxCharacters, text.Length - index);
-            fragmentList.Add(text.Substring(index, length));
-            index += length;
+            // Si agregar la palabra excede el límite, guarda el fragmento actual y comienza uno nuevo
+            if ((currentFragment + word).Length > maxCharacters)
+            {
+                fragmentList.Add(currentFragment.Trim());
+                currentFragment = "";
+            }
+
+            currentFragment += word + " ";
+        }
+
+        // Agrega el último fragmento si no está vacío
+        if (!string.IsNullOrEmpty(currentFragment))
+        {
+            fragmentList.Add(currentFragment.Trim());
         }
 
         return fragmentList.ToArray();
     }
+
 }
 
