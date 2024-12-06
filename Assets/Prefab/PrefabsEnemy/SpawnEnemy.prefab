@@ -47,4 +47,4 @@ MonoBehaviour:
   enemy: {fileID: 8813117536847904730, guid: d70d50da957e9514bb758ce0c660bdec, type: 3}
   player: {fileID: 0}
   interactionNPC: {fileID: 0}
-  timeMax: 15
+  timeMax: 10
