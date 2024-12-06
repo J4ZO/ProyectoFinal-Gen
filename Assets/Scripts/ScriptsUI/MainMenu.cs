@@ -84,10 +84,14 @@ public class MainMenu : MonoBehaviour
 
     public void CambiarBrillo(float valor)
     {
-        sliderValue = valor;
+        // Invertir el valor del slider (0 será el máximo brillo y 1 el mínimo)
+        sliderValue = 1f - valor;
         PlayerPrefs.SetFloat("brillo", sliderValue);
-        filtroBrillo.color = new Color(filtroBrillo.color.r, filtroBrillo.color.g, filtroBrillo.color.b, slider.value);
+
+        // Actualizar el filtro de brillo con el valor invertido
+        filtroBrillo.color = new Color(filtroBrillo.color.r, filtroBrillo.color.g, filtroBrillo.color.b, sliderValue);
     }
+
 
     public void Salir()
     {
@@ -95,3 +99,4 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 }
+

@@ -25,9 +25,13 @@ public class NPCInteraction : MonoBehaviour
         {
             animator.SetTrigger("isTalking");
             textNPC.SetActive(true);
+
+            // Inicia el diálogo fragmentado (Yuli)
+            GetComponent<DialogFragmentController>().StartFragmentedDialog();
         }
         ShowMessages();
     }
+
 
     private void OnTriggerEnter(Collider other) 
     {

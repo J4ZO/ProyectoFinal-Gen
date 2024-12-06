@@ -248,9 +248,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2767743242841606467, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3169513921624572469, guid: 666417ea5023ffb479d97856d262db58, type: 3}
       propertyPath: m_Name
       value: CanvasUIPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919641099826171584, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919641099826171584, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919641099826171584, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172986859100248100, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172986859100248100, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172986859100248100, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880742386114474632, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880742386114474632, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157382563541593115, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353915155961884494, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353915155961884494, guid: 666417ea5023ffb479d97856d262db58, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8557627426549948449, guid: 666417ea5023ffb479d97856d262db58, type: 3}
       propertyPath: m_Pivot.x
