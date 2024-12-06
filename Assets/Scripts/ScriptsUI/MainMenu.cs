@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject menuOpciones;
     public GameObject menuCreditos;
     public GameObject menuControles; // Nuevo panel de controles
-    public GameObject panelPlayControles; // Panel de controles desde el botón Jugar
+    public GameObject panelPlayControles; // Panel de controles desde el bot�n Jugar
 
     // Referencia al AudioMixer
     [SerializeField] private AudioMixer audioMixer;
@@ -21,25 +21,14 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         // Configurar brillo inicial
-        if (!PlayerPrefs.HasKey("brillo"))
-        {
-            PlayerPrefs.SetFloat("brillo", 0.5f); // Valor estándar
-            PlayerPrefs.Save();
-        }
+        slider.value = PlayerPrefs.GetFloat("brillo", 5f);
+        filtroBrillo.color = new Color(filtroBrillo.color.r, filtroBrillo.color.g, filtroBrillo.color.b, slider.value);
 
-        // Leer el valor de brillo guardado o el estándar
-        sliderValue = PlayerPrefs.GetFloat("brillo", 0.5f);
-        filtroBrillo.color = new Color(filtroBrillo.color.r, filtroBrillo.color.g, filtroBrillo.color.b, sliderValue);
-
-        // Configurar el slider para reflejar el valor inicial
-        if (slider != null)
-            slider.value = sliderValue;
-
-        // Mostrar el menú principal al iniciar
+        // Mostrar el men� principal al iniciar
         ShowMenuPrincipal();
     }
 
-    // Métodos para mostrar los diferentes menús
+    // M�todos para mostrar los diferentes men�s
     public void ShowMenuPrincipal()
     {
         menuPrincipal.SetActive(true);
@@ -67,48 +56,42 @@ public class MainMenu : MonoBehaviour
         menuControles.SetActive(true);
     }
 
-    // Método para mostrar el panel de controles desde el botón Jugar
+    // M�todo para mostrar el panel de controles desde el bot�n Jugar
     public void ShowPanelPlayControles()
     {
         menuPrincipal.SetActive(false);
         panelPlayControles.SetActive(true); // Mostrar el panel de controles desde Jugar
     }
 
-    // Métodos para cerrar paneles y volver al menú principal
+    // M�todos para cerrar paneles y volver al men� principal
     public void VolverAlMenuPrincipal()
     {
         ShowMenuPrincipal();
     }
 
-    // Método para cargar la siguiente escena desde el panel Play
+    // M�todo para cargar la siguiente escena desde el panel Play
     public void Jugar()
     {
         // Cargar la escena de la historia (asumimos que se llama "Historia")
         SceneManager.LoadScene(1);
     }
 
-    // Método para cambiar el volumen
+    // M�todo para cambiar el volumen
     public void CambiarVolumen(float volumen)
     {
         audioMixer.SetFloat("Volumen", volumen);
     }
 
-    // Método para cambiar el brillo
     public void CambiarBrillo(float valor)
     {
-        // Guardar el valor en PlayerPrefs
-        sliderValue = valor;
+        // Invertir el valor del slider (0 será el máximo brillo y 1 el mínimo)
+        sliderValue = 1f - valor;
         PlayerPrefs.SetFloat("brillo", sliderValue);
-        PlayerPrefs.Save();
 
-        // Actualizar el filtro de brillo
-        filtroBrillo.color = new Color(
-            filtroBrillo.color.r,
-            filtroBrillo.color.g,
-            filtroBrillo.color.b,
-            sliderValue
-        );
+        // Actualizar el filtro de brillo con el valor invertido
+        filtroBrillo.color = new Color(filtroBrillo.color.r, filtroBrillo.color.g, filtroBrillo.color.b, sliderValue);
     }
+
 
     public void Salir()
     {
