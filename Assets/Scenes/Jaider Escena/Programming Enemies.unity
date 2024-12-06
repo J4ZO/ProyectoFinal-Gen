@@ -122,6 +122,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &527784271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3958643830397935867, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
+  m_PrefabInstance: {fileID: 1082231004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &527784288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527784271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c91771e23b708429b958eb09921bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMovement: 5
+  speedRotate: 200
+  movX: 0
+  movY: 0
+  grounded: 0
+  fuerzaDeSalto: 7
 --- !u!1001 &643582568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,7 +317,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866598430}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
@@ -313,7 +336,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866598430}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -543,10 +566,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 300363178353897277, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
+    - {fileID: 2614863332389119872, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3958643830397935867, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 527784288}
   m_SourcePrefab: {fileID: 100100000, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
 --- !u!1 &1099299698
 GameObject:
@@ -693,6 +721,10 @@ PrefabInstance:
     - target: {fileID: 8813117536847904730, guid: d70d50da957e9514bb758ce0c660bdec, type: 3}
       propertyPath: m_Name
       value: EnemyMutant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813117536847904730, guid: d70d50da957e9514bb758ce0c660bdec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

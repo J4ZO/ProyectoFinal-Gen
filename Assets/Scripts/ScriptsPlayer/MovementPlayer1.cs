@@ -71,14 +71,22 @@ public class MovementPlayer1 : MonoBehaviour
         movY = Input.GetAxis("Vertical");
         transform.Rotate(0, movX * Time.deltaTime * speedRotate * 0.5f, 0);
         transform.Translate(0, 0, movY * Time.deltaTime * speedMovement);
-        if(movY != 0 && !isRunning)
+        if(movY > 0 && !isRunning)
         {
             animator.SetBool("Walking",true);
+            animator.SetBool("WalkingBehind",false);
             speedMovement = 5;
         }else
         {
             animator.SetBool("Walking",false);
             animator.SetBool("Running",false);
+            animator.SetBool("WalkingBehind",false);
+        }
+
+        if(movY < 0)
+        {
+            animator.SetBool("WalkingBehind",true);
+            animator.SetBool("Walking",false);
         }
     }
 
