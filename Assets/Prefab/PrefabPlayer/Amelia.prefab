@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1284374297106415854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1097827864626446366, guid: 8628ac7bafb597c4bb701e11a7f5330e, type: 3}
+  m_PrefabInstance: {fileID: 2229078672692625648}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466557744353932410}
+  m_Layer: 0
+  m_Name: 'Pistola (Missing Prefab with guid: 8628ac7bafb597c4bb701e11a7f5330e)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466557744353932410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1771828860171728010, guid: 8628ac7bafb597c4bb701e11a7f5330e, type: 3}
+  m_PrefabInstance: {fileID: 2229078672692625648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284374297106415854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6823955, y: 0.17236762, z: -0.20675796, w: -0.6796154}
+  m_LocalPosition: {x: -0.061, y: 0.094, z: 0.029}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3078023353825260822}
+  m_LocalEulerAnglesHint: {x: 301.101, y: -88.974, z: -268.133}
 --- !u!1 &2122926348025054215
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,16 +184,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8628ac7bafb597c4bb701e11a7f5330e, type: 3}
---- !u!4 &466557744353932410 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1771828860171728010, guid: 8628ac7bafb597c4bb701e11a7f5330e, type: 3}
-  m_PrefabInstance: {fileID: 2229078672692625648}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1284374297106415854 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1097827864626446366, guid: 8628ac7bafb597c4bb701e11a7f5330e, type: 3}
-  m_PrefabInstance: {fileID: 2229078672692625648}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4192433743121882538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 01209962cbd02f64ab7fa9d747eb174a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 01209962cbd02f64ab7fa9d747eb174a, type: 3}
       propertyPath: m_Controller
@@ -382,12 +403,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958643830397935867}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b3558002d9bd8740820a699422fdd8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 1284374297106415854}
+  bulletPrefab: {fileID: 0}
+  bulletPower: 20
+  damageAmount: 5
 --- !u!4 &4441742458750597697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01209962cbd02f64ab7fa9d747eb174a, type: 3}

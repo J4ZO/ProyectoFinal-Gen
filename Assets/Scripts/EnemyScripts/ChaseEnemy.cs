@@ -16,6 +16,7 @@ public class ChaseEnemy : State
 
     
     private Animator animator;
+    private HealthController healthPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,20 @@ public class ChaseEnemy : State
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         die = GetComponentInChildren<EnemyController>();
+        healthPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (healthPlayer.GetDie()) 
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+            animator.ResetTrigger("Run");
+            return; 
+        }
+
         if(!die.GetDie())
         {
             agent.SetDestination(player.position);
@@ -48,6 +58,17 @@ public class ChaseEnemy : State
             return this;
         }
         
+    }
+
+    private void StopChasing()
+    {
+        if (!agent.isStopped)
+        {
+            agent.isStopped = true; 
+            agent.ResetPath(); 
+        }
+        animator.ResetTrigger("Run"); 
+        animator.SetTrigger("Idle"); 
     }
 
     private void OnTriggerEnter(Collider other) 

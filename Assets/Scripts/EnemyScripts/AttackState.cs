@@ -6,18 +6,19 @@ public class AttackState : State
 {
     private ChaseEnemy chase; // call attack state
     [SerializeField] private bool isAttacking;
-    private Coroutine attackCoroutine; 
+    private HealthController healthPlayer;
     private Animator animator;
 
     void Start()
     {
         chase = GetComponent<ChaseEnemy>();
         animator = GetComponent<Animator>();
+        healthPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
         
     }
     public override State RunCurrentState()
     {
-        if(isAttacking)
+        if(isAttacking && !healthPlayer.GetDie())
         {
             AttackPlayer();
             return this; // Stay in attack state
@@ -34,13 +35,15 @@ public class AttackState : State
 
     private void AttackPlayer()
     {
-
-        Debug.Log("Atacando al jugador");
     }
 
     private void OnTriggerEnter(Collider other) 
     {
-        animator.SetTrigger("Attack");
+        if(!healthPlayer.GetDie())
+        {
+            animator.SetTrigger("Attack");
+        }
+        
         isAttacking = other.CompareTag("Player") ? true : false;
     }
     private void OnTriggerExit(Collider other) 
