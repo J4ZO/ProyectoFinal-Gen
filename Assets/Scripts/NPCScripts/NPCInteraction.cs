@@ -8,15 +8,18 @@ public class NPCInteraction : MonoBehaviour
     [SerializeField] private GameObject textNPC;
     [SerializeField] private List<GameObject> texts;
     private int indexTexts = 0;
-    private bool isPlayerInRange = false;
+    public bool isPlayerInRange;
 
     public bool isInteractionCompleated;
 
     private Animator animator;
 
+    private DialogFragmentController dialog;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        dialog = GetComponent<DialogFragmentController>();
     }
     // Update is called once per frame
     void Update()
@@ -26,7 +29,7 @@ public class NPCInteraction : MonoBehaviour
             animator.SetTrigger("isTalking");
             textNPC.SetActive(true);
 
-            // Inicia el diálogo fragmentado (Yuli)
+            // Inicia el diï¿½logo fragmentado (Yuli)
             GetComponent<DialogFragmentController>().StartFragmentedDialog();
         }
         ShowMessages();
@@ -55,7 +58,7 @@ public class NPCInteraction : MonoBehaviour
 
     private void ShowMessages()
     {
-        if(Input.GetButtonDown("Fire1") && isPlayerInRange && textNPC.activeSelf)
+        if(dialog.IsDialogComplete && isPlayerInRange && textNPC.activeSelf)
         {
             texts[indexTexts].SetActive(false);
             indexTexts++;

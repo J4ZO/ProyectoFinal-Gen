@@ -20,7 +20,7 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!enemy.activeSelf && interactionNPC.isInteractionCompleated)
+        if(!enemy.activeSelf && (interactionNPC.isInteractionCompleated || interactionNPC.isPlayerInRange))
         {
             currentTime += Time.deltaTime;
             Debug.Log(currentTime);
@@ -36,7 +36,6 @@ public class SpawnEnemy : MonoBehaviour
     }
     private void Spawn()
     {
-        Vector3 playerPosition = player.transform.position;
-        enemy.transform.position = playerPosition + new Vector3(10f,0f,0f);
+        enemy.transform.position = transform.position;
     }
 }

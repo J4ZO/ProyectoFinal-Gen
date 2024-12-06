@@ -7,6 +7,8 @@ TagManager:
   - Volumen
   - Enemy
   - CinemachineTarget
+  - Ground
+  - Clue
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6187664732996836783}
   m_Layer: 0
   m_Name: Mapa
-  m_TagString: Untagged
+  m_TagString: Clue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5072244322924830329}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.041429, y: 1.8928657, z: -3.2172623}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fa704d5b575a6e94bb9fd8c2759664f7, type: 2}
+  isPicked: 0
 --- !u!65 &6187664732996836783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -117,5 +118,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8170561, y: 0.82186854, z: 1.7845451}
-  m_Center: {x: 0.053150993, y: -0.07946702, z: -0.05611592}
+  m_Size: {x: 2.442443, y: 1.8947823, z: 2.4249258}
+  m_Center: {x: 0.26944458, y: 0.009245673, z: 0.008131117}

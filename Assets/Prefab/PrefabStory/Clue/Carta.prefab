@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5258765803791716882}
   m_Layer: 0
   m_Name: Carta
-  m_TagString: Untagged
+  m_TagString: Clue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 49.31024, y: 1.4260845, z: 0.91029006}
+  m_Center: {x: 0.092853695, y: 0.060542107, z: 0.044854876}
 --- !u!114 &5258765803791716882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 6cfcc0b46d744ab448d524eeae563f40, type: 2}
+  isPicked: 0
