@@ -11,13 +11,13 @@ public class AttackPlayer : MonoBehaviour
     [SerializeField] private float bulletPower = 20f;
     [SerializeField] private Collider punchCollider;
     public float damageAmount = 5f;
-    private bool gunActive = true;
+    private bool gunActive = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
         try
         {
             healthEnemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
@@ -43,21 +43,22 @@ public class AttackPlayer : MonoBehaviour
             {
                 AtacarConPunos();
             }
-            if (Input.GetKeyDown(KeyCode.R))
-            { 
-                ToggleGun();
-            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        { 
+            ToggleGun();
         }
     }
 
     private void AtacarConPunos()
     {
-      
-        animator.SetTrigger("Punch"); 
+        //animator.SetTrigger("Punch"); 
         Debug.Log("Atacando con puños");
+        animator.SetTrigger("Attacking");
 
-        punchCollider.enabled = true;
-        StartCoroutine(DesactivarColisionador(punchCollider, 0.5f));
+        //punchCollider.enabled = true;
+        //StartCoroutine(DesactivarColisionador(punchCollider, 0.5f));
 
         if (healthEnemy != null) 
         { 
@@ -68,7 +69,8 @@ public class AttackPlayer : MonoBehaviour
 
     private void AtacarConPistola()
     {
-        punchCollider.enabled = false;
+        //punchCollider.enabled = false;
+        animator.SetTrigger("Shoot");
         GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, gun.transform.rotation); 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
         rb.AddForce(gun.transform.forward * bulletPower, ForceMode.Impulse);
@@ -77,12 +79,27 @@ public class AttackPlayer : MonoBehaviour
     private void ToggleGun() 
     { 
         gunActive = !gunActive; 
-        gun.SetActive(gunActive); 
+        if(gunActive)
+        {
+            StartCoroutine(WaitActiveGun());
+        }
+        else
+        {
+            gun.SetActive(false);
+        }
         Debug.Log(gunActive ? "Sacando el arma" : "Guardando el arma"); 
     }
     private IEnumerator DesactivarColisionador(Collider collider, float delay) 
     {
         yield return new WaitForSeconds(delay); 
-        collider.enabled = false; 
+        //collider.enabled = false; 
+    }
+
+    private IEnumerator WaitActiveGun() 
+    {
+        animator.SetTrigger("isGunPick");
+        yield return new WaitForSeconds(0.3f); 
+        gun.SetActive(true); 
+        //collider.enabled = false; 
     }
 }
