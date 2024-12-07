@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Reloj
   icon: {fileID: 21300000, guid: a96d8e88470313e43a1c3b1acd2bf200, type: 3}
   description: "El reloj marca las tres pero no indica la hora del asesinato, sino
-    un cafe cercano llamado Cafe de las tres\u201D"
+    un cafe cercano llamado Cafe de las tres\u201D     Pista 2"
