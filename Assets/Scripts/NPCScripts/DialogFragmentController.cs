@@ -5,14 +5,12 @@ using System.Collections.Generic;
 
 public class DialogFragmentController : MonoBehaviour
 {
-    public TMP_Text dialogText; // Asigna el componente de texto del Canvas aqu�
+    public TMP_Text dialogText; // Asigna el componente de texto del Canvas aquí
     [TextArea(3, 10)] public string fullDialog; // El texto completo a mostrar
-    public float fragmentDisplayTime = 3f; // Tiempo entre fragmentos
-    public int maxCharactersPerFragment = 80; // M�ximo n�mero de caracteres por fragmento
+    public int maxCharactersPerFragment = 80; // Máximo número de caracteres por fragmento
 
     private string[] fragments; // Fragmentos del texto
     private int currentFragmentIndex = 0;
-    private Coroutine fragmentCoroutine;
     public bool IsDialogComplete;
 
     void Start()
@@ -23,26 +21,26 @@ public class DialogFragmentController : MonoBehaviour
 
     public void StartFragmentedDialog()
     {
-        if (fragmentCoroutine == null) // Evita que se duplique la ejecuci�n
+        if (currentFragmentIndex < fragments.Length) // Verifica que hay fragmentos restantes
         {
-            fragmentCoroutine = StartCoroutine(ShowDialogByFragments());
+            ShowNextFragment();
         }
     }
 
-    private IEnumerator ShowDialogByFragments()
+    public void ShowNextFragment()
     {
-        while (currentFragmentIndex < fragments.Length)
+        if (currentFragmentIndex < fragments.Length)
         {
             dialogText.text = fragments[currentFragmentIndex];
             currentFragmentIndex++;
-            yield return new WaitForSeconds(fragmentDisplayTime);
         }
-
-        // Cuando termina el di�logo, limpia el texto (opcional)
-        dialogText.text = "";
-        fragmentCoroutine = null;
-        currentFragmentIndex = 0; // Reinicia para poder reutilizar
-        IsDialogComplete = true;
+        else
+        {
+            // Cuando termina el diálogo, limpia el texto (opcional)
+            dialogText.text = "";
+            currentFragmentIndex = 0; // Reinicia para poder reutilizar
+            IsDialogComplete = true;
+        }
     }
 
     private string[] SplitTextIntoFragments(string text, int maxCharacters)
@@ -53,7 +51,7 @@ public class DialogFragmentController : MonoBehaviour
 
         foreach (string word in words)
         {
-            // Si agregar la palabra excede el l�mite, guarda el fragmento actual y comienza uno nuevo
+            // Si agregar la palabra excede el límite, guarda el fragmento actual y comienza uno nuevo
             if ((currentFragment + word).Length > maxCharacters)
             {
                 fragmentList.Add(currentFragment.Trim());
@@ -63,7 +61,7 @@ public class DialogFragmentController : MonoBehaviour
             currentFragment += word + " ";
         }
 
-        // Agrega el �ltimo fragmento si no est� vac�o
+        // Agrega el último fragmento si no está vacío
         if (!string.IsNullOrEmpty(currentFragment))
         {
             fragmentList.Add(currentFragment.Trim());
@@ -71,6 +69,5 @@ public class DialogFragmentController : MonoBehaviour
 
         return fragmentList.ToArray();
     }
-
 }
 

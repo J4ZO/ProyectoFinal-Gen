@@ -57,6 +57,13 @@ public class Collectable : MonoBehaviour
             playerInventory.AddItem(item);
         }
 
+        // Mostrar descripción del objeto si tiene
+        ItemDescriptionUI descriptionUI = FindObjectOfType<ItemDescriptionUI>();
+        if (descriptionUI != null && !string.IsNullOrEmpty(item.description))
+        {
+            descriptionUI.ShowDescription(item.description);
+        }
+
         Destroy(gameObject);
         isPicked = false; 
     }
