@@ -7,8 +7,12 @@ public class Historia : MonoBehaviour
     public TextMeshProUGUI textoHistoria; // TextMeshPro para mostrar la historia
     public string historiaCompleta; // Texto completo de la historia
     public float velocidadEscritura = 0.1f; // Tiempo entre letras
-    public AudioSource sonidoMaquina; // Sonido de m�quina de escribir
+    public AudioSource sonidoMaquina; // Sonido de máquina de escribir
     public AudioSource sonidoFondo; // Sonido de fondo
+    public string escenaSiguiente = "Level1_final"; // Nombre de la escena siguiente
+
+    private Coroutine historiaCoroutine;
+    private bool historiaMostrada = false; // Control para saber si la historia ya está completamente mostrada
 
     private void Start()
     {
@@ -17,12 +21,21 @@ public class Historia : MonoBehaviour
             sonidoFondo.Play(); // Iniciar el sonido de fondo
         }
 
-        StartCoroutine(MostrarHistoria());
+        historiaCoroutine = StartCoroutine(MostrarHistoria());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SaltarHistoria();
+        }
     }
 
     IEnumerator MostrarHistoria()
     {
-        textoHistoria.text = ""; // Inicializar texto vac�o
+        textoHistoria.text = ""; // Inicializar texto vacío
+        historiaMostrada = false;
 
         foreach (char letra in historiaCompleta.ToCharArray())
         {
@@ -34,7 +47,7 @@ public class Historia : MonoBehaviour
                 sonidoMaquina.Play();
             }
 
-            // Pausar m�s tiempo al final de una frase o pregunta
+            // Pausar más tiempo al final de una frase o pregunta
             if (letra == '.' || letra == '!' || letra == '?')
             {
                 yield return new WaitForSeconds(0.5f); // Pausa larga
@@ -45,6 +58,7 @@ public class Historia : MonoBehaviour
             }
         }
 
+        historiaMostrada = true; // Indicar que el texto ya está completamente mostrado
         yield return new WaitForSeconds(2); // Esperar antes de continuar
 
         if (sonidoFondo != null)
@@ -52,12 +66,41 @@ public class Historia : MonoBehaviour
             sonidoFondo.Stop(); // Detener el sonido de fondo antes de cargar el juego
         }
 
-        CargarJuego(); // Transici�n al juego
+        CargarJuego(); // Transición al juego
+    }
+
+    void SaltarHistoria()
+    {
+        if (!historiaMostrada)
+        {
+            // Detener la animación de la historia
+            if (historiaCoroutine != null)
+            {
+                StopCoroutine(historiaCoroutine);
+            }
+
+            textoHistoria.text = historiaCompleta; // Mostrar texto completo
+            historiaMostrada = true; // Marcar la historia como mostrada
+
+            if (sonidoMaquina != null)
+            {
+                sonidoMaquina.Stop(); // Detener el sonido de máquina
+            }
+        }
+        else
+        {
+            // Si la historia ya estaba mostrada, cargar el juego inmediatamente
+            CargarJuego();
+        }
     }
 
     void CargarJuego()
     {
-        // Cambia "Level1" por el nombre de la escena de tu juego
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        if (sonidoFondo != null)
+        {
+            sonidoFondo.Stop(); // Asegurar que el sonido de fondo se detiene
+        }
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1_final");
     }
 }

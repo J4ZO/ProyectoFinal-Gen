@@ -9,6 +9,7 @@ public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject panelControles; // Referencia al panel de controles
     [SerializeField] private Slider brilloSlider; // Slider para el brillo
     [SerializeField] private Slider volumenSlider; // Slider para el volumen
     [SerializeField] private Image filtroBrillo; // Imagen que simula el brillo
@@ -95,4 +96,19 @@ public class MenuPausa : MonoBehaviour
         // Ajustar el volumen en el AudioMixer (convertir a decibeles)
         audioMixer.SetFloat("Volumen", Mathf.Log10(valor) * 20);
     }
+
+    // Método para ir al panel de controles
+    public void MostrarControles()
+    {
+        menuPausa.SetActive(false); // Desactiva el menú de pausa
+        panelControles.SetActive(true); // Activa el panel de controles
+    }
+
+    // Método para volver al menú de pausa desde el panel de controles
+    public void VolverMenuPausa()
+    {
+        panelControles.SetActive(false); // Desactiva el panel de controles
+        menuPausa.SetActive(true); // Activa el menú de pausa
+    }
 }
+

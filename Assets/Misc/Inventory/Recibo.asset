@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Recibo
   icon: {fileID: 21300000, guid: 88f9f06922396b144b69a6e5fe8720a7, type: 3}
-  description: Recibo del anticuario
+  description: "Esta informacion me sera de mucha ayuda para seguir con mi investigacion,
+    \xA1Guau una frase llamativa! ESTA EN EL ABISMO Me pregunto \xBFque sera el Abismo,
+    lo ire a buscar?     Pista 7 "
