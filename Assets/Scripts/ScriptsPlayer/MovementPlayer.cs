@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementPlayer : MonoBehaviour
 {
-    [SerializeField] private float speedMovement = 5.0f;
+    public  float speedMovement = 5.0f;
     [SerializeField] private float speedRotate = 200.0f;
     [SerializeField] private float movX;
     [SerializeField] private float movY,moveRun;
@@ -16,6 +16,8 @@ public class MovementPlayer : MonoBehaviour
 
     private Animator animator;
     private bool isRunning;
+    [SerializeField] private bool stopMovement;
+
 
     private Collectable stopIsPicking;
 
@@ -35,7 +37,7 @@ public class MovementPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!stopIsPicking.isPicked)
+        if(!stopIsPicking.isPicked) 
         {
             Movement();
             if(Input.GetKey(KeyCode.LeftShift))
@@ -43,37 +45,69 @@ public class MovementPlayer : MonoBehaviour
                 Running();
             }else
             {
-                speedMovement = 5f;
+                //speedMovement = 5f;
                 animator.SetBool("Running",false);
                 isRunning = false;
+            }
+        }
+
+        if(stopMovement)
+        {
+            speedMovement = 0f;
+            rb.velocity = Vector3.zero;
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (grounded) 
+            {
+                Debug.Log("Salta");
+                Salto();
             }
         }
     }
 
 
 
-    // void Salto()
-    // {
-    //     if (grounded) 
-    //     {
-    //         rb.AddForce(new Vector3(0, fuerzaDeSalto, 0), ForceMode.Impulse);  
-    //         grounded = false; 
-    //     }
-    // }
 
-    // private void OnCollisionEnter(Collision other) {
-    //     if(other.gameObject.CompareTag("Ground"))
-    //     {
-    //         grounded = true;
-    //     }
-    // }
+    private void Salto()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
+        rb.AddForce(Vector3.up * fuerzaDeSalto, ForceMode.Impulse); 
+        animator.SetTrigger("Jumping");
+        grounded = false; 
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Clue"))
+        {
+            stopMovement = true;
+        }
+    }
+
+
+    public void OnClueDestroyed()
+    {
+        stopMovement = false;
+        speedMovement = 5f;
+    }
 
     private void Movement()
     {
         movX = Input.GetAxis("Horizontal");
         movY = Input.GetAxis("Vertical");
         transform.Rotate(0, movX * Time.deltaTime * speedRotate * 0.5f, 0);
-        transform.Translate(0, 0, movY * Time.deltaTime * speedMovement);
+        Vector3 movement = transform.forward * movY * speedMovement;
+        rb.AddForce(movement, ForceMode.Impulse);
         if(movY > 0 && !isRunning)
         {
             animator.SetBool("Walking",true);
@@ -98,5 +132,17 @@ public class MovementPlayer : MonoBehaviour
         isRunning = true;
         speedMovement = moveRun;
         animator.SetBool("Running",true);
+    }
+
+    private void StopMovement()
+    {
+        // Detiene cualquier movimiento aplicando cero a las velocidades
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // Detiene las animaciones de caminar o correr
+        animator.SetBool("Walking", false);
+        animator.SetBool("Running", false);
+        animator.SetBool("WalkingBehind", false);
     }
 }
