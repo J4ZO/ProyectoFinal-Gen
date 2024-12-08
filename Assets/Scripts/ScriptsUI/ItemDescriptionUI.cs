@@ -4,21 +4,21 @@ using TMPro;
 public class ItemDescriptionUI : MonoBehaviour
 {
     public GameObject descriptionPanel; // El panel que contiene el texto
-    public TextMeshProUGUI descriptionText; // Texto para la descripción
+    public TextMeshProUGUI descriptionText; // Texto para la descripciï¿½n
 
     private void Start()
     {
-        descriptionPanel.SetActive(false); // Asegúrate de que el panel esté oculto al inicio
+        descriptionPanel.SetActive(false); // Asegï¿½rate de que el panel estï¿½ oculto al inicio
     }
 
-    // Método para mostrar la descripción
+    // Mï¿½todo para mostrar la descripciï¿½n
     public void ShowDescription(string description)
     {
         descriptionText.text = description;
         descriptionPanel.SetActive(true);
     }
 
-    // Método para ocultar la descripción
+    // Mï¿½todo para ocultar la descripciï¿½n
     public void HideDescription()
     {
         descriptionPanel.SetActive(false);
@@ -26,7 +26,7 @@ public class ItemDescriptionUI : MonoBehaviour
 
     private void Update()
     {
-        // Opción para ocultar el panel presionando una tecla, como "E"
+        // Opciï¿½n para ocultar el panel presionando una tecla, como "Esc"
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             HideDescription();

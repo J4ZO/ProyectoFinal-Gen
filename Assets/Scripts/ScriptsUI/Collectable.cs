@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collectable : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Collectable : MonoBehaviour
     public bool isPicked;
     private bool isPlayerInRange;
     private MovementPlayer player;
+    [SerializeField] private GameObject text;
 
 
     private void Start()
@@ -23,6 +25,7 @@ public class Collectable : MonoBehaviour
             isPicked = true;
             Debug.Log("Recoge objeto");
             StartCoroutine(PickItem());
+            text.SetActive(true);
         }
     }
 

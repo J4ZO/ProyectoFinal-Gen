@@ -12,11 +12,14 @@ public class AttackPlayer : MonoBehaviour
     public float damageAmount = 5f;
     private bool gunActive = false;
 
+    [SerializeField] private AudioClip punchSound;
+    private AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        sound = GetComponent<AudioSource>();
         try
         {
             healthEnemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
@@ -24,7 +27,6 @@ public class AttackPlayer : MonoBehaviour
         catch (System.Exception)
         {
             
-            Debug.Log("Enemy desactivated");
         }
         
     }
@@ -52,9 +54,8 @@ public class AttackPlayer : MonoBehaviour
 
     private void AtacarConPunos()
     {
-        //animator.SetTrigger("Punch"); 
-        Debug.Log("Atacando con puños");
         animator.SetTrigger("Attacking");
+        sound.PlayOneShot(punchSound);
 
         //punchCollider.enabled = true;
         //StartCoroutine(DesactivarColisionador(punchCollider, 0.5f));
@@ -62,7 +63,6 @@ public class AttackPlayer : MonoBehaviour
         if (healthEnemy != null) 
         { 
             healthEnemy.Damage(damageAmount); 
-            Debug.Log("Daño infligido al enemigo con puños"); 
         }
     }       
 
@@ -73,7 +73,6 @@ public class AttackPlayer : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, gun.transform.rotation); 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
         rb.AddForce(gun.transform.forward * bulletPower, ForceMode.Impulse);
-        Debug.Log("Atacando con pistola"); 
     }
     private void ToggleGun() 
     { 
