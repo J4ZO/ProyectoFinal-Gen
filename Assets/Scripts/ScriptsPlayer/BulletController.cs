@@ -6,20 +6,29 @@ public class BulletController : MonoBehaviour
 {
     Rigidbody bulletRb;
     public float bulltPower = 0f;
-    public float lifeTime = 4f;
+    public float lifeTime = 10f;
     public float damageAmount = 25f;
 
     private float time = 0f;
+    private EnemyController healthEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletRb = GetComponent<Rigidbody>();
-        bulletRb.velocity = this.transform.forward * bulltPower;
+        bulletRb.velocity = transform.forward * bulltPower;
+        try
+        {
+            healthEnemy = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<EnemyController>();
+        }
+        catch (System.Exception)
+        {
+        }
+        
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         time -= Time.deltaTime;
 
@@ -28,17 +37,13 @@ public class BulletController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other) 
     { if (other.CompareTag("Enemy"))
         {
-            EnemyController healthEnemy = other.GetComponent<EnemyController>();
-
-            if (healthEnemy != null)
-            {
-                healthEnemy.Damage(damageAmount);
-                Debug.Log("Bala impactó al enemigo");
-            }
-            Destroy(this.gameObject);
+            
+            healthEnemy.Damage(damageAmount); 
+            Debug.Log("Bala impactï¿½ al enemigo");
+            gameObject.SetActive(false);
         }
     
     }   

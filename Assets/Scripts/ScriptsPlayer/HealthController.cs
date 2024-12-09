@@ -33,7 +33,6 @@ public class HealthController : MonoBehaviour
         
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
         if(currentHealth <= 0f)
         {
             isDeadPlayer = true;
