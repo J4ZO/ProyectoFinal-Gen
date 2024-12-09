@@ -5,12 +5,6 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
-    [SerializeField] private GameObject player;
-    [SerializeField] private NPCInteraction interactionNPC;
-    [SerializeField] private float timeMax = 15f;
-    private float currentTime;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,22 +14,19 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!enemy.activeSelf && (interactionNPC.isInteractionCompleated || interactionNPC.isPlayerInRange))
-        {
-            currentTime += Time.deltaTime;
-            Debug.Log(currentTime);
-            if(currentTime >= timeMax)
-            {
-                Spawn();
-                enemy.SetActive(true);
-                currentTime = 0f;
-                Debug.Log("Aparece enemigo");
-            }
-        }
     
     }
     private void Spawn()
     {
         enemy.transform.position = transform.position;
+    }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Player") && !enemy.activeSelf)
+        {
+            enemy.transform.position = transform.position;
+            enemy.SetActive(true);
+        }    
     }
 }

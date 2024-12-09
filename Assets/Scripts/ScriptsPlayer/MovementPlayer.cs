@@ -10,9 +10,6 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] private float movY,moveRun;
 
     private Rigidbody rb;
-    [SerializeField] private bool grounded;
-
-    [SerializeField] private float fuerzaDeSalto = 22f;
 
     private Animator animator;
     private bool isRunning;
@@ -55,34 +52,6 @@ public class MovementPlayer : MonoBehaviour
         {
             speedMovement = 0f;
             rb.velocity = Vector3.zero;
-        }
-
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if (grounded) 
-            {
-                Debug.Log("Salta");
-                Salto();
-            }
-        }
-    }
-
-
-
-
-    private void Salto()
-    {
-        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
-        rb.AddForce(Vector3.up * fuerzaDeSalto, ForceMode.Impulse); 
-        animator.SetTrigger("Jumping");
-        grounded = false; 
-    }
-
-    private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.CompareTag("Ground"))
-        {
-            grounded = true;
         }
     }
 
