@@ -18,6 +18,8 @@ public class NPCInteraction : MonoBehaviour
 
     private DialogFragmentController dialog;
 
+    private bool hasStartedInteraction = false; // Nueva variable para controlar el canvas
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -33,13 +35,22 @@ public class NPCInteraction : MonoBehaviour
     {
         if (isPlayerInRange)
         {
-            if (interactionCanvas != null && !interactionCanvas.activeSelf)
+            if (interactionCanvas != null && !interactionCanvas.activeSelf && !hasStartedInteraction)
             {
-                interactionCanvas.SetActive(true); // Muestra el canvas cuando el jugador está cerca
+                interactionCanvas.SetActive(true); // Muestra el canvas si no ha comenzado la interacción
             }
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                if (!hasStartedInteraction)
+                {
+                    hasStartedInteraction = true; // Marca que la interacción ha comenzado
+                    if (interactionCanvas != null)
+                    {
+                        interactionCanvas.SetActive(false); // Desactiva el canvas al iniciar la interacción
+                    }
+                }
+
                 animator.SetTrigger("isTalking");
                 textNPC.SetActive(true);
 
@@ -47,9 +58,14 @@ public class NPCInteraction : MonoBehaviour
                 dialog.ShowNextFragment();
             }
         }
-        else if (interactionCanvas != null && interactionCanvas.activeSelf)
+        else
         {
-            interactionCanvas.SetActive(false); // Oculta el canvas cuando el jugador se aleja
+            if (interactionCanvas != null && interactionCanvas.activeSelf)
+            {
+                interactionCanvas.SetActive(false); // Oculta el canvas cuando el jugador se aleja
+            }
+
+            hasStartedInteraction = false; // Resetea la interacción cuando el jugador se aleja
         }
 
         ShowMessages();
@@ -95,4 +111,5 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 }
+
 

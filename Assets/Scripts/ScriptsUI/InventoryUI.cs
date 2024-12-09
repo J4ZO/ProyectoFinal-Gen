@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,10 @@ public class InventoryUI : MonoBehaviour
         {
             GameObject slot = Instantiate(inventorySlotPrefab, itemsParent);
             slot.transform.GetChild(0).GetComponent<Image>().sprite = item.icon;
+
+            // Asignar el nombre del ítem
+            TextMeshProUGUI itemNameText = slot.transform.GetChild(1).GetComponent<TextMeshProUGUI>(); 
+            itemNameText.text = item.itemName;
 
         }
 
