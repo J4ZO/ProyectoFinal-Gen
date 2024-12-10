@@ -17,13 +17,11 @@ public class AttackPlayer : MonoBehaviour
     private bool isPunchingEnemy;
     [SerializeField] private AudioClip punchSound;
     [SerializeField] private AudioClip shootSound;
-    private AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        sound = GetComponent<AudioSource>();
         try
         {
             healthEnemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
@@ -61,7 +59,8 @@ public class AttackPlayer : MonoBehaviour
         animator.SetTrigger("Attacking");
         if(isPunchingEnemy)
         {
-            sound.PlayOneShot(punchSound);
+            //sound.PlayOneShot(punchSound);
+            AudioManager.Instance.PlaySFX(punchSound);
         }
 
 
@@ -93,7 +92,8 @@ public class AttackPlayer : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, shootBulletPos.transform.position, shootBulletPos.transform.rotation); 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
         rb.AddForce(shootBulletPos.transform.forward * bulletPower, ForceMode.Impulse);
-        sound.PlayOneShot(shootSound);
+        //sound.PlayOneShot(shootSound);
+        AudioManager.Instance.PlaySFX(shootSound);
     }
     private void ToggleGun() 
     { 

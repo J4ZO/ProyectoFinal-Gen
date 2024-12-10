@@ -12,22 +12,12 @@ public class BulletController : MonoBehaviour
     private float time = 0f;
     private EnemyController healthEnemy;
     [SerializeField] private AudioClip hitSound;
-    private AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletRb = GetComponent<Rigidbody>();
-        sound = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         bulletRb.velocity = transform.forward * bulltPower;
-        try
-        {
-            healthEnemy = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<EnemyController>();
-        }
-        catch (System.Exception)
-        {
-        }
-        
     }
 
     // Update is called once per frame
@@ -43,7 +33,8 @@ public class BulletController : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     { if (other.CompareTag("Enemy"))
         {
-            sound.PlayOneShot(hitSound);
+            EnemyController healthEnemy = other.GetComponentInChildren<EnemyController>();
+            AudioManager.Instance.PlaySFX(hitSound);
             healthEnemy.Damage(damageAmount); 
             Debug.Log("Bala impact� al enemigo");
             gameObject.SetActive(false);

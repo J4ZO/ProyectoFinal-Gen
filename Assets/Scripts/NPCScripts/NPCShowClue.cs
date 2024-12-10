@@ -20,7 +20,7 @@ public class NPCShowClue : MonoBehaviour
         {
             textClue.SetActive(true);
             try { footprints.SetActive(true); }
-            catch (System.Exception e) { }
+            catch (System.Exception) { }
             
         }
     }

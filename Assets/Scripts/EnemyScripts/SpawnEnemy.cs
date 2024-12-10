@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
+    private bool enemyIsActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,10 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        if(enemy.activeSelf)
+        {
+            enemyIsActive = true;
+        }
     }
     private void Spawn()
     {
@@ -23,7 +27,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.CompareTag("Player") && !enemy.activeSelf)
+        if(other.CompareTag("Player") && !enemy.activeSelf && !enemyIsActive)
         {
             enemy.transform.position = transform.position;
             enemy.SetActive(true);
