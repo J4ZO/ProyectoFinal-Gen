@@ -19,7 +19,9 @@ public class NPCShowClue : MonoBehaviour
         if(interaction.isInteractionCompleated)
         {
             textClue.SetActive(true);
-            footprints.SetActive(true);
+            try { footprints.SetActive(true); }
+            catch (System.Exception e) { }
+            
         }
     }
 
