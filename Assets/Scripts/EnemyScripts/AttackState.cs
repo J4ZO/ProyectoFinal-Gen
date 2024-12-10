@@ -20,7 +20,6 @@ public class AttackState : State
     {
         if(isAttacking && !healthPlayer.GetDie())
         {
-            AttackPlayer();
             return this; // Stay in attack state
         }
         else
@@ -32,10 +31,6 @@ public class AttackState : State
         
     }
 
-
-    private void AttackPlayer()
-    {
-    }
 
     private void OnTriggerEnter(Collider other) 
     {

@@ -5,11 +5,18 @@ using UnityEngine;
 public class StateManaganer : MonoBehaviour
 {
     [SerializeField] private State currentState;
+    [SerializeField] private EnemyController healthEnemy;
 
     // Update is called once per frame
     void Update()
     {
-        RunStateMachine();
+        if(!healthEnemy.GetDie())
+        {
+            RunStateMachine();
+        }else
+        {
+            Debug.Log("No hay estados a ejecutar");
+        }
     }
 
     private void RunStateMachine()
