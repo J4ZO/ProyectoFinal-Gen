@@ -98,6 +98,7 @@ MonoBehaviour:
   bulltPower: 100
   lifeTime: 10
   damageAmount: 25
+  hitSound: {fileID: 8300000, guid: 6c013331f8309b14cad0fecc104375d2, type: 3}
 --- !u!1 &6855829052684244434
 GameObject:
   m_ObjectHideFlags: 0
