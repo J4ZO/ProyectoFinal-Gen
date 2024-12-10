@@ -9684,6 +9684,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2368909723674207577, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2663246815108580911, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9712,6 +9716,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7376679140385387834, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+      propertyPath: infoClue
+      value: 
+      objectReference: {fileID: 661934643}
     - target: {fileID: 7450110845915256209, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9812,6 +9820,22 @@ PrefabInstance:
       addedObject: {fileID: 1461510496}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+--- !u!1 &661934643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2814819475546128000, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+  m_PrefabInstance: {fileID: 661934642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &661934644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7376679140385387834, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+  m_PrefabInstance: {fileID: 661934642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cb82f262e1eab4bbeead57fc453009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &662453536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4089411741397104234, guid: 192942cee9759494aa27cca32255320c, type: 3}
@@ -13248,7 +13272,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.5756052, g: 0.57873374, b: 0.6132076, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -26817,6 +26841,10 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1536181281}
+    - target: {fileID: 2614863332389119872, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 661934644}
     - target: {fileID: 2614863332389119872, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
       propertyPath: crosshair
       value: 

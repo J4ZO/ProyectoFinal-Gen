@@ -18,11 +18,14 @@ public class AttackPlayer : MonoBehaviour
     [SerializeField] private AudioClip punchSound;
     [SerializeField] private AudioClip shootSound;
     [SerializeField] private MenuPausa menu;
+    private MovementPlayer movement;
+
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        movement = GetComponent<MovementPlayer>();
         try
         {
             healthEnemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
@@ -47,6 +50,7 @@ public class AttackPlayer : MonoBehaviour
             {
                 AtacarConPunos();
             }
+            StartCoroutine(WaitForWalk());
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -114,8 +118,18 @@ public class AttackPlayer : MonoBehaviour
 
     private IEnumerator WaitActiveGun() 
     {
+        movement.stopMovement = true;
         animator.SetTrigger("isGunPick");
         yield return new WaitForSeconds(0.3f); 
         gun.SetActive(true); 
+        yield return new WaitForSeconds(1.8f);
+        movement.stopMovement = false;
+    }
+
+    private IEnumerator WaitForWalk()
+    {
+        movement.stopMovement = true;
+        yield return new WaitForSeconds(1f);
+        movement.stopMovement = false;
     }
 }

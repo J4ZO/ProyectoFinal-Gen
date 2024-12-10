@@ -26229,6 +26229,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ee4f28dc908b1b94b9acc3627a762502, type: 3}
   m_PrefabInstance: {fileID: 1493566704}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1746361874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2814819475546128000, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+  m_PrefabInstance: {fileID: 2242644489284183268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1752854544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28568,6 +28573,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8583002522060905234, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
   m_PrefabInstance: {fileID: 2242644489284183268}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1928995200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7376679140385387834, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+  m_PrefabInstance: {fileID: 2242644489284183268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cb82f262e1eab4bbeead57fc453009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1930517227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28584,6 +28600,10 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 7157382564405891990}
+    - target: {fileID: 2614863332389119872, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 1928995200}
     - target: {fileID: 2614863332389119872, guid: 5611accb27b65974ea3319dee7318da8, type: 3}
       propertyPath: crosshair
       value: 
@@ -47082,6 +47102,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3189342198375519102, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3212046092131460386, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
       propertyPath: m_Name
       value: CanvasUIPlayer
@@ -47110,6 +47134,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 187
       objectReference: {fileID: 0}
+    - target: {fileID: 7376679140385387834, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+      propertyPath: infoClue
+      value: 
+      objectReference: {fileID: 1746361874}
     - target: {fileID: 8583002522060905234, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0

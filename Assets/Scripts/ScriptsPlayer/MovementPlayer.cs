@@ -13,7 +13,7 @@ public class MovementPlayer : MonoBehaviour
 
     private Animator animator;
     private bool isRunning;
-    [SerializeField] private bool stopMovement;
+    public bool stopMovement;
 
 
     private Collectable stopIsPicking;
@@ -21,8 +21,8 @@ public class MovementPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();   
-        animator = GetComponent<Animator>();  
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         stopIsPicking = GameObject.FindGameObjectWithTag("Clue").GetComponent<Collectable>();      
     }
 
