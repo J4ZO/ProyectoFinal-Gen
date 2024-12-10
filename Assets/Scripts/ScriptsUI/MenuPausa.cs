@@ -10,10 +10,13 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private GameObject panelControles; // Referencia al panel de controles
+    [SerializeField] private GameObject infoClue; // Referencia al panel de controles
     [SerializeField] private Slider brilloSlider; // Slider para el brillo
     [SerializeField] private Slider volumenSlider; // Slider para el volumen
     [SerializeField] private Image filtroBrillo; // Imagen que simula el brillo
     [SerializeField] private AudioMixer audioMixer; // AudioMixer para el volumen
+
+    public bool isActive;
 
     private bool juegoPausado = false;
 
@@ -48,10 +51,14 @@ public class MenuPausa : MonoBehaviour
                 Pausa();
             }
         }
+
+        isActive = infoClue.activeSelf ? true : false;
+
     }
 
     public void Pausa()
     {
+        isActive= true;
         juegoPausado = true;
         Time.timeScale = 0f;
         botonPausa.SetActive(false);
@@ -60,6 +67,7 @@ public class MenuPausa : MonoBehaviour
 
     public void Jugar()
     {
+        isActive = false;
         juegoPausado = false;
         Time.timeScale = 1f;
         botonPausa.SetActive(true);

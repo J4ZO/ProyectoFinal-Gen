@@ -17,6 +17,7 @@ public class AttackPlayer : MonoBehaviour
     private bool isPunchingEnemy;
     [SerializeField] private AudioClip punchSound;
     [SerializeField] private AudioClip shootSound;
+    [SerializeField] private MenuPausa menu;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class AttackPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !menu.isActive)
         {
             if (gunActive) 
             {
