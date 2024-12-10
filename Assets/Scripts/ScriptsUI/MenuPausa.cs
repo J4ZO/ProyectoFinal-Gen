@@ -30,7 +30,7 @@ public class MenuPausa : MonoBehaviour
         CambiarBrillo(brilloGuardado);
         CambiarVolumen(volumenGuardado);
 
-        // Vincula los sliders a sus métodos
+        // Vincula los sliders a sus mï¿½todos
         brilloSlider.onValueChanged.AddListener(CambiarBrillo);
         volumenSlider.onValueChanged.AddListener(CambiarVolumen);
     }
@@ -68,20 +68,20 @@ public class MenuPausa : MonoBehaviour
 
     public void Restaurar()
     {
-        Time.timeScale = 1f; // Asegúrate de restaurar el tiempo antes de reiniciar
+        Time.timeScale = 1f; // Asegï¿½rate de restaurar el tiempo antes de reiniciar
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Salir()
     {
-        Time.timeScale = 1f; // Asegúrate de restaurar el tiempo antes de cambiar de escena
+        Time.timeScale = 1f; // Asegï¿½rate de restaurar el tiempo antes de cambiar de escena
         SceneManager.LoadScene("Menu");
     }
 
-    // Métodos para cambiar brillo y volumen
+    // Mï¿½todos para cambiar brillo y volumen
     public void CambiarBrillo(float valor)
     {
-        // Invertir el valor del slider (0 será máximo brillo, 1 será mínimo brillo)
+        // Invertir el valor del slider (0 serï¿½ mï¿½ximo brillo, 1 serï¿½ mï¿½nimo brillo)
         float brilloInvertido = 1f - valor;
         PlayerPrefs.SetFloat("brillo", brilloInvertido);
 
@@ -97,18 +97,18 @@ public class MenuPausa : MonoBehaviour
         audioMixer.SetFloat("Volumen", Mathf.Log10(valor) * 20);
     }
 
-    // Método para ir al panel de controles
+    // Mï¿½todo para ir al panel de controles
     public void MostrarControles()
     {
-        menuPausa.SetActive(false); // Desactiva el menú de pausa
+        menuPausa.SetActive(false); // Desactiva el menï¿½ de pausa
         panelControles.SetActive(true); // Activa el panel de controles
     }
 
-    // Método para volver al menú de pausa desde el panel de controles
+    // Mï¿½todo para volver al menï¿½ de pausa desde el panel de controles
     public void VolverMenuPausa()
     {
         panelControles.SetActive(false); // Desactiva el panel de controles
-        menuPausa.SetActive(true); // Activa el menú de pausa
+        menuPausa.SetActive(true); // Activa el menï¿½ de pausa
     }
 }
 
