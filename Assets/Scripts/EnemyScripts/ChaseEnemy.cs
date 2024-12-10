@@ -32,19 +32,10 @@ public class ChaseEnemy : State
     // Update is called once per frame
     void Update()
     {
-        if (healthPlayer.GetDie()) 
-        {
-            agent.isStopped = true;
-            agent.ResetPath();
-            animator.ResetTrigger("Run");
-            return; 
-        }
-
-        if(!die.GetDie())
-        {
+        
             agent.SetDestination(player.position);
             animator.SetTrigger("Run");
-        }
+        
     }
 
     public override State RunCurrentState()

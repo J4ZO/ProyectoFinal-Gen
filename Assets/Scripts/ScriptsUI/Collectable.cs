@@ -93,10 +93,7 @@ public class Collectable : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (player != null)
-        {
-            player.OnClueDestroyed();
-        }
+        
     }
 
     private IEnumerator PickItem()
@@ -122,7 +119,11 @@ public class Collectable : MonoBehaviour
             descriptionUI.ShowDescription(item.description);
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         isPicked = false;
+        if (player != null)
+        {
+            player.OnClueDestroyed();
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    [SerializeField] private int numberScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,12 @@ public class SceneChange : MonoBehaviour
         
     }
 
-
+    
     private void OnCollisionEnter(Collision other) 
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(numberScene);
         }
         
     }
