@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 5786514097582495760}
+  healthEnemy: {fileID: 5887425179611222369}
 --- !u!135 &6876967025982982070
 SphereCollider:
   m_ObjectHideFlags: 0
