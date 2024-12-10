@@ -6,7 +6,10 @@ public class NPCShowClue : MonoBehaviour
 {
     private NPCInteraction interaction;
     [SerializeField] private GameObject textClue;
-    [SerializeField] private GameObject footprints;
+    [SerializeField] private GameObject objectToShow;
+    private bool hasPlayedSound = false; 
+    [SerializeField] private AudioClip alertSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +21,13 @@ public class NPCShowClue : MonoBehaviour
     {
         if(interaction.isInteractionCompleated)
         {
+            if(!hasPlayedSound)
+            {
+                AudioManager.Instance.PlaySFX(alertSound);
+                hasPlayedSound = true; 
+            } 
             textClue.SetActive(true);
-            try { footprints.SetActive(true); }
+            try { objectToShow.SetActive(true); }
             catch (System.Exception) { }
             
         }
