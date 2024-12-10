@@ -1480,7 +1480,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.7429245, g: 0.81498426, b: 0.990566, a: 1}
+  m_Color: {r: 0.5294118, g: 0.5529412, b: 0.7254902, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -47138,6 +47138,10 @@ PrefabInstance:
       propertyPath: infoClue
       value: 
       objectReference: {fileID: 1746361874}
+    - target: {fileID: 7376679140385387834, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
+      propertyPath: menuOver
+      value: 
+      objectReference: {fileID: 7157382564405891990}
     - target: {fileID: 8583002522060905234, guid: 7a7ee117af78fe941934acbaf8b685ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0

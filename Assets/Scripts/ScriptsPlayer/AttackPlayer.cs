@@ -40,7 +40,7 @@ public class AttackPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !menu.isActive)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !menu.isActive && !menu.isActiveMenu && !menu.isActiveOver)
         {
             if (gunActive) 
             {
@@ -61,18 +61,22 @@ public class AttackPlayer : MonoBehaviour
 
     private void AtacarConPunos()
     {
-        animator.SetTrigger("Attacking");
-        if(isPunchingEnemy)
+        if(!menu.isActive || !menu.isActiveMenu || !menu.isActiveOver)
         {
-            //sound.PlayOneShot(punchSound);
-            AudioManager.Instance.PlaySFX(punchSound);
-        }
+            animator.SetTrigger("Attacking");
+            if(isPunchingEnemy)
+            {
+                //sound.PlayOneShot(punchSound);
+                AudioManager.Instance.PlaySFX(punchSound);
+            }
 
 
-        if (healthEnemy != null) 
-        { 
-            healthEnemy.Damage(damageAmount); 
+            if (healthEnemy != null) 
+            { 
+                healthEnemy.Damage(damageAmount); 
+            }
         }
+        
     }
 
 
@@ -93,13 +97,17 @@ public class AttackPlayer : MonoBehaviour
 
     private void AtacarConPistola()
     {
-        animator.SetTrigger("Shoot");
-        GameObject bullet = Instantiate(bulletPrefab, shootBulletPos.transform.position, shootBulletPos.transform.rotation); 
-        Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
-        rb.AddForce(shootBulletPos.transform.forward * bulletPower, ForceMode.Impulse);
-        //sound.PlayOneShot(shootSound);
-        AudioManager.Instance.PlaySFX(shootSound);
+        if(!menu.isActive || !menu.isActiveMenu || !menu.isActiveOver)
+        {
+            animator.SetTrigger("Shoot");
+            GameObject bullet = Instantiate(bulletPrefab, shootBulletPos.transform.position, shootBulletPos.transform.rotation); 
+            Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
+            rb.AddForce(shootBulletPos.transform.forward * bulletPower, ForceMode.Impulse);
+            //sound.PlayOneShot(shootSound);
+            AudioManager.Instance.PlaySFX(shootSound);
+        }
     }
+
     private void ToggleGun() 
     { 
         gunActive = !gunActive; 
