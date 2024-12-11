@@ -3893,6 +3893,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8662752739018776180, guid: 926d614d9ed161a48a8539444d862c82, type: 3}
+      propertyPath: fullDialog
+      value: "AMELIA: \xBFHola Marcos que haces por ac\xE1?\r\nMARCOS: Voy para mi
+        negocio, tengo un Bar que se llama El Abismo\r\nPENSAMIENTO MARCOS: \xBFSera
+        que sospecha de m\xED? \xBFPorque se dirige al Abismo? \xBFC\xF3mo sabe del
+        lugar, solo su padre sabia la ubicaci\xF3n y esa ubicaci\xF3n solo est\xE1
+        en el mapa que se me perdi\xF3?\r\nMARCOS: \xBFAmelia si encontraste el mapa
+        que te ped\xED que buscaras en el anticuario?\r\nAMELIA: NO, no lo hice,
+        decid\xED investigar por otro lado y buscar respuestas sobre la muerte de
+        mi padre debo de encontrarlo y hacer justicia por eso no tuve tiempo de ir
+        a buscar su mapa. \xA1Lo Siento!\r\nMARCOS: Tranquila Amelia ser\xE1 en otra
+        ocasi\xF3n. Dime \xBFqu\xE9 haces tu por ac\xE1, tan sola en un lugar tan
+        peligroso?\r\nAMELIA: Decid\xED recorrer otros caminos diferentes de los
+        que la gente me dec\xEDa para poder investigar m\xE1s y dar r\xE1pido con
+        el culpable antes de que se vaya del pa\xEDs y caminando llegue a este lugar.
+        Pero seria muy bueno que fu\xE9ramos juntos a tu Bar all\xED podre investigar
+        m\xE1s sobre mi padre.\r\nPENSAMIENTO AMELIA: Vaya mis sospechas sobre Marcos
+        cada vez se hacen m\xE1s evidentes, llegar\xE9 al fondo de todo esto.\r\nMARCOS:
+        Lo siento mucho Amelia no podr\xE9 ir al Bar, primero debo de hacer otras
+        diligencias. \xA1Que estes bien! lamento lo de tu padre.\r\nPENSAMIENTO AMELIA:
+        vaya que r\xE1pido me ignoro, tengo una fuerte sospecha de que esconde algo,
+        lo averiguare. Quiero saber que es esa piedra llamada \xC9ter que encontr\xE9
+        en el recibo y en el mapa, la voy a encontrar. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662752739018776180, guid: 926d614d9ed161a48a8539444d862c82, type: 3}
+      propertyPath: maxCharactersPerFragment
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3591818246483622363, guid: 926d614d9ed161a48a8539444d862c82, type: 3}
     m_RemovedGameObjects:
@@ -7351,27 +7379,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8662752739018776180, guid: 926d614d9ed161a48a8539444d862c82, type: 3}
       propertyPath: fullDialog
-      value: "AMELIA: \xBFHola Marcos que haces por ac\xE1?\n\nMARCOS: Voy para mi
-        negocio, tengo un Bar que se llama El Abismo\n\nPENSAMIENTO MARCOS: \xBFSera
-        que sospecha de m\xED? \xBFPorque se dirige al Abismo? \xBFC\xF3mo sabe del
-        lugar, solo su padre sabia la ubicaci\xF3n y esa ubicaci\xF3n solo est\xE1
-        en el mapa que se me perdi\xF3?\n\nMARCOS: \xBFAmelia si encontraste el mapa
-        que te ped\xED que buscaras en el anticuario?\n\nAMELIA: NO, no lo hice,
-        decid\xED investigar por otro lado y buscar respuestas sobre la muerte de
-        mi padre debo de encontrarlo y hacer justicia por eso no tuve tiempo de ir
-        a buscar su mapa. \xA1Lo Siento!\n\nMARCOS: Tranquila Amelia ser\xE1 en otra
-        ocasi\xF3n. Dime \xBFqu\xE9 haces tu por ac\xE1, tan sola en un lugar tan
-        peligroso?\n\nAMELIA: Decid\xED recorrer otros caminos diferentes de los
-        que la gente me dec\xEDa para poder investigar m\xE1s y dar r\xE1pido con
-        el culpable antes de que se vaya del pa\xEDs y caminando llegue a este lugar.
-        Pero seria muy bueno que fu\xE9ramos juntos a tu Bar all\xED podre investigar
-        m\xE1s sobre mi padre.\n\nPENSAMIENTO AMELIA: Vaya mis sospechas sobre Marcos
-        cada vez se hacen m\xE1s evidentes, llegar\xE9 al fondo de todo esto.\n\nMARCOS:
-        Lo siento mucho Amelia no podr\xE9 ir al Bar, primero debo de hacer otras
-        diligencias. \xA1Que estes bien! lamento lo de tu padre.\n\nPENSAMIENTO AMELIA:
-        vaya que r\xE1pido me ignoro, tengo una fuerte sospecha de que esconde algo,
-        lo averiguare. Quiero saber que es esa piedra llamada \xC9ter que encontr\xE9
-        en el recibo y en el mapa, la voy a encontrar.\_"
+      value: "MARCOS: \xBFQu\xE9 buscas? \r\nAMELIA: Busco al culpable de la muerte
+        de mi padre. \r\nMARCOS: Creo saber qui\xE9n mat\xF3 a tu padre, \xA1lo ciento
+        que terrible suceso!, pero \u201CAmelia debes de ir al anticuario, all\xED
+        encontrar\xE1s un mapa de mucho valor para m\xED. Hagamos algo, tr\xE1eme
+        ese mapa y te dir\xE9 el nombre del asesino de tu padre.\u201D\r\nPENSAMIENTO
+        AMELIA: Presiento que \xE9l es el verdadero culpable, pero que ser\xE1 lo
+        que contiene ese mapa que es tan valioso para \xE9l.\r\nMARCOS: Nos vemos
+        pronto.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662752739018776180, guid: 926d614d9ed161a48a8539444d862c82, type: 3}
+      propertyPath: maxCharactersPerFragment
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

@@ -16749,6 +16749,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3141332474972512225, guid: d8959d0307c6c5c4cb8e41e086c2a4fb, type: 3}
+      propertyPath: fullDialog
+      value: "Buenas noches se\xF1orita, veo que busca informaci\xF3n del asesinato
+        que acaba de ocurrir, Yo vi entrar a este cafe al hombre que fue asesinado
+        mas o menos a las 3 de la tarde junto con dos hombres y una mujer uno de
+        ellos no tiene cabello y el otro hombre es de cabello corto y barba, la mujer
+        es de piel morena y delgada, ellos son clientes frecuentes de este cafe y
+        sus nombres son Marcos, Pedro y Ana ten cuidado porque uno de ellos se ha
+        visto involucrado con una secta llamada  el tercer ojo. Por cierto, hace
+        poco note unas huellas, en direcci\xF3n al bosque, tal vez podr\xEDas ir
+        a investigar."
+      objectReference: {fileID: 0}
     - target: {fileID: 3409237117574748020, guid: d8959d0307c6c5c4cb8e41e086c2a4fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.65
