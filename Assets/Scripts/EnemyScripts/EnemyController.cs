@@ -26,7 +26,6 @@ public class EnemyController : MonoBehaviour
 
         if(currentHealth <= 0f)
         {
-            isDead = true;
             StartCoroutine(WaitForDie());
         }
     }
@@ -43,6 +42,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator WaitForDie()
     {
+        isDead = true;
         animator.SetBool("Die",true);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 2f);
         enemy.SetActive(false);

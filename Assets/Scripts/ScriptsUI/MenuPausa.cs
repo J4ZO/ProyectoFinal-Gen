@@ -7,8 +7,8 @@ using UnityEngine.Audio;
 
 public class MenuPausa : MonoBehaviour
 {
-    [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject menuOver;
     [SerializeField] private GameObject panelControles; // Referencia al panel de controles
     [SerializeField] private GameObject infoClue; // Referencia al panel de controles
     [SerializeField] private Slider brilloSlider; // Slider para el brillo
@@ -17,6 +17,8 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer; // AudioMixer para el volumen
 
     public bool isActive;
+    public bool isActiveMenu;
+    public bool isActiveOver;
 
     private bool juegoPausado = false;
 
@@ -53,24 +55,21 @@ public class MenuPausa : MonoBehaviour
         }
 
         isActive = infoClue.activeSelf ? true : false;
-
+        isActiveMenu = menuPausa.activeSelf ? true : false;
+        isActiveOver = menuOver.activeSelf ? true : false;
     }
 
     public void Pausa()
     {
-        isActive= true;
         juegoPausado = true;
         Time.timeScale = 0f;
-        botonPausa.SetActive(false);
         menuPausa.SetActive(true);
     }
 
     public void Jugar()
     {
-        isActive = false;
         juegoPausado = false;
         Time.timeScale = 1f;
-        botonPausa.SetActive(true);
         menuPausa.SetActive(false);
     }
 

@@ -42,7 +42,7 @@ public class Level3Controller : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            if(!interaction.isInteractionCompleated)
+            if(!interaction.isInteractionCompleated && !interaction2.isInteractionCompleated)
             {
                 marcosNPC.SetActive(true);
             }
