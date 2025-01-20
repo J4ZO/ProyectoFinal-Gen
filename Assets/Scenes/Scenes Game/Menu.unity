@@ -2379,6 +2379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContenedorMenuOpciones
       objectReference: {fileID: 0}
+    - target: {fileID: 5984011601259452988, guid: 900ea2730e374254891a11ca0a36dbe9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7562122102956471984, guid: 900ea2730e374254891a11ca0a36dbe9, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2592,7 +2596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7008433114024937308
 GameObject:
   m_ObjectHideFlags: 0
